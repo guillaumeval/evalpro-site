@@ -556,7 +556,7 @@
     <footer id="contact">
         <div class="container">
             <h3>Contact</h3>
-            <p>Email: contact@evalpro-cameroun.com | Téléphone: +237 698443166</p>
+            <p>Email: contact@evalpro-cameroun.com | Téléphone: +237 6XX XXX XXX</p>
             <p>Yaoundé, Cameroun</p>
             <p>&copy; 2025 EvalPro Cameroun. Tous droits réservés.</p>
         </div>
@@ -678,6 +678,259 @@
         });
 
         // Close modals when clicking outside
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Form submissions with success messages
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form type for customized messages
+                const modal = this.closest('.modal');
+                let successMessage = '';
+                
+                if (modal) {
+                    const modalId = modal.id;
+                    switch(modalId) {
+                        case 'loginModal':
+                            successMessage = '✅ Connexion réussie ! Redirection vers votre espace personnel...';
+                            break;
+                        case 'registerModal':
+                            successMessage = '✅ Compte créé avec succès ! Un email de confirmation vous a été envoyé.';
+                            break;
+                        case 'subscriptionModal':
+                            successMessage = '✅ Demande d\'abonnement enregistrée ! Je vous contacte sous 24h pour finaliser votre souscription.';
+                            break;
+                        case 'contactModal':
+                            successMessage = '✅ Message envoyé avec succès ! Je vous réponds dans les plus brefs délais.';
+                            break;
+                        case 'submitModal':
+                            successMessage = '✅ Rapport soumis avec succès ! Merci pour votre contribution à notre base de connaissances.';
+                            break;
+                        case 'adminModal':
+                            successMessage = '🔐 Vérification des identifiants administrateur...';
+                            break;
+                        default:
+                            successMessage = '✅ Formulaire soumis avec succès !';
+                    }
+                } else {
+                    successMessage = '✅ Formulaire soumis avec succès !';
+                }
+                
+                alert(successMessage);
+                
+                // Close the modal
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                
+                // Reset form
+                this.reset();
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .pricing-card, .expertise-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Stats counter animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('%') ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
+                    }
+                }, 40);
+            });
+        }
+
+        // Trigger stats animation when hero section is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 1000);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroObserver.observe(heroSection);
+        }
+
+        // Mobile menu toggle (for future enhancement)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add scroll to top button (appears after scrolling)
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                if (!scrollButton) {
+                    const button = document.createElement('button');
+                    button.id = 'scrollToTop';
+                    button.innerHTML = '↑';
+                    button.style.cssText = `
+                        position: fixed;
+                        bottom: 30px;
+                        right: 30px;
+                        background: linear-gradient(45deg, #00d4aa, #0099cc);
+                        color: white;
+                        border: none;
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        font-size: 20px;
+                        cursor: pointer;
+                        z-index: 1000;
+                        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+                        transition: all 0.3s ease;
+                    `;
+                    button.onclick = scrollToTop;
+                    button.onmouseover = function() {
+                        this.style.transform = 'translateY(-3px)';
+                        this.style.boxShadow = '0 8px 25px rgba(0, 212, 170, 0.4)';
+                    };
+                    button.onmouseout = function() {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 4px 15px rgba(0, 212, 170, 0.3)';
+                    };
+                    document.body.appendChild(button);
+                }
+            } else {
+                const scrollButton = document.getElementById('scrollToTop');
+                if (scrollButton) {
+                    scrollButton.remove();
+                }
+            }
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Close modal with Escape key
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        });
+
+        // Performance optimization: Lazy load images (if any images are added later)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Contact form validation enhancement
+        function validatePhoneNumber(phone) {
+            const camerounRegex = /^(\+237|237)?[6-9]\d{8}$/;
+            return camerounRegex.test(phone.replace(/\s/g, ''));
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Enhanced form validation
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validatePhoneNumber(this.value)) {
+                    this.style.borderColor = '#ff6b6b';
+                    this.setCustomValidity('Veuillez entrer un numéro camerounais valide (+237 6XX XXX XXX)');
+                } else {
+                    this.style.borderColor = '#00d4aa';
+                    this.setCustomValidity('');
+                }
+            });
+        });
+
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validateEmail(this.value)) {
+                    this.style.borderColor = '#ff6b6b';
+                    this.setCustomValidity('Veuillez entrer une adresse email valide');
+                } else {
+                    this.style.borderColor = '#00d4aa';
+                    this.setCustomValidity('');
+                }
+            });
+        });
+
+        // Console welcome message for developers
+        console.log(`
+        🌟 EvalPro Cameroun - Plateforme d'Évaluation de Projets
+        📊 Expert en analyse statistique et développement local
+        📱 Contact: +237 698 443 166 / +237 621 214 293
+        🌐 Site développé avec passion pour le développement du Cameroun
+        `);
+
+        // Initialize page
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            console.log('✅ Plateforme EvalPro Cameroun chargée avec succès !');
+        });
+    </script>
+</body>
+</html>
         window.onclick = function(event) {
             const modals = document.querySelectorAll('.modal');
             modals.forEach(modal => {
