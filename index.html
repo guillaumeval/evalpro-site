@@ -4,765 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EvalPro Cameroun - Équipe d'Experts en Gestion de Projets</title>
-    
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Équipe d'experts en gestion de projets de développement local au Cameroun. IA, statistiques, leçons apprises et accompagnement professionnel.">
-    <meta name="keywords" content="expert évaluation projets Cameroun, développement local, intelligence artificielle, statistiques projets, consultation Yaoundé">
-    <meta name="author" content="EvalPro Cameroun">
-    <meta name="robots" content="index, follow">
-    
+    <meta name="description" content="Équipe d'experts en gestion de projets de développement local au Cameroun. IA, statistiques, leçons apprises.">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #333; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
         /* Header */
-        header {
-            background: rgba(25, 47, 89, 0.95);
-            backdrop-filter: blur(15px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            border-bottom: 2px solid #00d4aa;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #00d4aa;
-            text-shadow: 0 0 10px rgba(0, 212, 170, 0.3);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #00d4aa;
-            transform: translateY(-2px);
-        }
-
-        .login-btn {
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-            color: white;
-            padding: 0.7rem 2rem;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
-        }
-
-        .login-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: linear-gradient(135deg, #1a2f59 0%, #2d5016 50%, #0f3460 100%);
-            overflow: hidden;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: white;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            background: linear-gradient(45deg, #00d4aa, #ffffff, #0099cc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: #00d4aa;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            line-height: 1.8;
-        }
-
-        .stats-bar {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin: 3rem 0;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 1.5rem;
-            border-radius: 15px;
-            border: 1px solid rgba(0, 212, 170, 0.3);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.2);
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #00d4aa;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-top: 0.5rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 1.2rem 2.5rem;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-primary {
-            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
-            color: white;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-secondary {
-            background: rgba(0, 212, 170, 0.2);
-            color: white;
-            border: 2px solid #00d4aa;
-            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.2);
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Expertise Section */
-        .expertise {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%);
-        }
-
-        .expertise h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            color: #1a2f59;
-            margin-bottom: 1rem;
-        }
-
-        .expertise-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 4rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .expertise-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .expertise-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(0, 212, 170, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .expertise-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-        }
-
-        .expertise-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
-        }
-
-        .expertise-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-            border-radius: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        .expertise-card h3 {
-            font-size: 1.5rem;
-            color: #1a2f59;
-            margin-bottom: 1rem;
-        }
-
-        .expertise-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Platform Architecture */
-        .platform-architecture {
-            background: #1a2f59;
-            padding: 5rem 0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .platform-architecture::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3Cpattern id='grid' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 50 0 L 0 0 0 50' fill='none' stroke='%2300d4aa' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
-            opacity: 0.3;
-        }
-
-        .architecture-title {
-            text-align: center;
-            font-size: 2.8rem;
-            color: white;
-            margin-bottom: 3rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .architecture-diagram {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .module {
-            background: linear-gradient(135deg, #00d4aa 0%, #0099cc 100%);
-            padding: 2rem 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-align: center;
-            min-width: 280px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .module::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
-            transform: scale(0);
-            transition: transform 0.5s ease;
-        }
-
-        .module:hover::before {
-            transform: scale(1);
-        }
-
-        .module:hover {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
-        }
-
-        .module h3 {
-            color: white;
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-
-        .module p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .modules-row {
-            display: flex;
-            gap: 2.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .connector {
-            width: 4px;
-            height: 50px;
-            background: linear-gradient(to bottom, #00d4aa, #0099cc);
-            border-radius: 2px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(0, 212, 170, 0.5);
-        }
-
-        .connector::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 12px;
-            height: 12px;
-            background: #00d4aa;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(0, 212, 170, 0.8);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
-        }
-
-        .services h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            color: #1a2f59;
-            margin-bottom: 4rem;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 212, 170, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(45deg, #ff6b6b, #00d4aa);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: #1a2f59;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.7;
-        }
-
-        /* Subscription Section */
-        .subscription-section {
-            background: linear-gradient(135deg, #1a2f59 0%, #2d5016 100%);
-            padding: 5rem 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .subscription-section h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .subscription-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            margin-bottom: 4rem;
-            opacity: 0.9;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        .pricing-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            padding: 3rem;
-            border-radius: 25px;
-            text-align: center;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .pricing-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 50px rgba(0, 212, 170, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-        .pricing-card.featured {
-            transform: scale(1.05);
-            border: 2px solid #00d4aa;
-            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
-        }
-
-        .pricing-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #00d4aa;
-        }
-
-        .price {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1.5rem 0;
-            background: linear-gradient(45deg, #00d4aa, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .features {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .features li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: #00d4aa;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #1a2f59 0%, #0f3460 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #00d4aa;
-        }
-
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .contact-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 212, 170, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.2);
-        }
-
-        .contact-item h3 {
-            color: #00d4aa;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-item p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #00d4aa;
-        }
+        header { background: rgba(25,47,89,0.95); backdrop-filter: blur(15px); padding: 1rem 0; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 30px rgba(0,0,0,0.3); border-bottom: 2px solid #00d4aa; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: bold; color: #00d4aa; text-shadow: 0 0 10px rgba(0,212,170,0.3); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { text-decoration: none; color: white; font-weight: 500; transition: all 0.3s ease; }
+        .nav-links a:hover { color: #00d4aa; transform: translateY(-2px); }
+        .login-btn { background: linear-gradient(45deg, #00d4aa, #0099cc); color: white; padding: 0.7rem 2rem; border: none; border-radius: 50px; cursor: pointer; font-weight: 600; transition: all 0.3s ease; }
+        .login-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,212,170,0.4); }
+
+        /* Hero */
+        .hero { min-height: 100vh; display: flex; align-items: center; background: linear-gradient(135deg, #1a2f59 0%, #2d5016 50%, #0f3460 100%); color: white; text-align: center; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1.5rem; background: linear-gradient(45deg, #00d4aa, #ffffff, #0099cc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-subtitle { font-size: 1.4rem; margin-bottom: 1rem; color: #00d4aa; font-weight: 600; }
+        .hero p { font-size: 1.2rem; margin-bottom: 2.5rem; opacity: 0.9; line-height: 1.8; }
+        .stats-bar { display: flex; justify-content: center; gap: 3rem; margin: 3rem 0; flex-wrap: wrap; }
+        .stat-item { text-align: center; background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; border: 1px solid rgba(0,212,170,0.3); backdrop-filter: blur(10px); transition: all 0.3s ease; }
+        .stat-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,212,170,0.2); }
+        .stat-number { font-size: 2.5rem; font-weight: bold; color: #00d4aa; display: block; }
+        .stat-label { font-size: 0.9rem; opacity: 0.8; margin-top: 0.5rem; }
+        .cta-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn { padding: 1.2rem 2.5rem; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+        .btn-primary { background: linear-gradient(45deg, #ff6b6b, #ff8e53); color: white; box-shadow: 0 8px 25px rgba(255,107,107,0.3); }
+        .btn-secondary { background: rgba(0,212,170,0.2); color: white; border: 2px solid #00d4aa; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+
+        /* Sections */
+        .expertise { padding: 5rem 0; background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%); }
+        .expertise h2 { text-align: center; font-size: 2.8rem; color: #1a2f59; margin-bottom: 1rem; }
+        .expertise-subtitle { text-align: center; font-size: 1.2rem; color: #666; margin-bottom: 4rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+        .expertise-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2.5rem; margin-top: 3rem; }
+        .expertise-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 1px solid rgba(0,212,170,0.1); transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .expertise-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(45deg, #00d4aa, #0099cc); }
+        .expertise-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,212,170,0.2); }
+        .expertise-icon { width: 60px; height: 60px; background: linear-gradient(45deg, #00d4aa, #0099cc); border-radius: 15px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.5rem; color: white; }
+        .expertise-card h3 { font-size: 1.5rem; color: #1a2f59; margin-bottom: 1rem; }
+        .expertise-card p { color: #666; line-height: 1.7; }
+
+        /* Architecture */
+        .platform-architecture { background: #1a2f59; padding: 5rem 0; position: relative; }
+        .platform-architecture::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3Cpattern id='grid' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 50 0 L 0 0 0 50' fill='none' stroke='%2300d4aa' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E"); opacity: 0.3; }
+        .architecture-title { text-align: center; font-size: 2.8rem; color: white; margin-bottom: 3rem; position: relative; z-index: 2; }
+        .architecture-diagram { display: flex; flex-direction: column; align-items: center; gap: 2rem; position: relative; z-index: 2; }
+        .module { background: linear-gradient(135deg, #00d4aa 0%, #0099cc 100%); padding: 2rem 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: all 0.3s ease; cursor: pointer; text-align: center; min-width: 280px; border: 2px solid rgba(255,255,255,0.1); }
+        .module:hover { transform: translateY(-8px) scale(1.05); box-shadow: 0 20px 40px rgba(0,212,170,0.4); }
+        .module h3 { color: white; font-size: 1.3rem; margin-bottom: 0.8rem; font-weight: 600; }
+        .module p { color: rgba(255,255,255,0.9); font-size: 1rem; line-height: 1.5; }
+        .modules-row { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; }
+        .connector { width: 4px; height: 50px; background: linear-gradient(to bottom, #00d4aa, #0099cc); border-radius: 2px; position: relative; box-shadow: 0 0 15px rgba(0,212,170,0.5); }
+        .connector::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 12px; height: 12px; background: #00d4aa; border-radius: 50%; box-shadow: 0 0 10px rgba(0,212,170,0.8); }
+
+        /* Services */
+        .services { padding: 5rem 0; background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%); }
+        .services h2 { text-align: center; font-size: 2.8rem; color: #1a2f59; margin-bottom: 4rem; }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .service-card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s ease; border: 1px solid rgba(0,212,170,0.1); position: relative; }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(45deg, #ff6b6b, #00d4aa); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 1.5rem; color: #1a2f59; }
+        .service-card p { color: #666; line-height: 1.7; }
+
+        /* Pricing */
+        .subscription-section { background: linear-gradient(135deg, #1a2f59 0%, #2d5016 100%); padding: 5rem 0; color: white; position: relative; }
+        .subscription-section h2 { text-align: center; font-size: 2.8rem; margin-bottom: 2rem; position: relative; z-index: 2; }
+        .subscription-subtitle { text-align: center; font-size: 1.2rem; margin-bottom: 4rem; opacity: 0.9; position: relative; z-index: 2; }
+        .pricing-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; position: relative; z-index: 2; }
+        .pricing-card { background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.2); padding: 3rem; border-radius: 25px; text-align: center; transition: all 0.3s ease; position: relative; }
+        .pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(45deg, #00d4aa, #0099cc); }
+        .pricing-card:hover { transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,212,170,0.3); background: rgba(255,255,255,0.15); }
+        .pricing-card.featured { transform: scale(1.05); border: 2px solid #00d4aa; box-shadow: 0 20px 40px rgba(0,212,170,0.3); }
+        .pricing-card h3 { font-size: 1.8rem; margin-bottom: 1rem; color: #00d4aa; }
+        .price { font-size: 3rem; font-weight: bold; margin: 1.5rem 0; background: linear-gradient(45deg, #00d4aa, #ffffff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .features { list-style: none; margin: 2rem 0; text-align: left; }
+        .features li { padding: 0.8rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; padding-left: 2rem; }
+        .features li::before { content: '✓'; position: absolute; left: 0; color: #00d4aa; font-weight: bold; font-size: 1.2rem; }
+
+        /* Contact */
+        .contact { background: linear-gradient(135deg, #1a2f59 0%, #0f3460 100%); color: white; padding: 4rem 0; text-align: center; }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 2rem; color: #00d4aa; }
+        .contact-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 3rem 0; }
+        .contact-item { background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; backdrop-filter: blur(10px); border: 1px solid rgba(0,212,170,0.3); transition: all 0.3s ease; }
+        .contact-item:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,212,170,0.2); }
+        .contact-item h3 { color: #00d4aa; margin-bottom: 1rem; font-size: 1.3rem; }
+        .contact-item p { font-size: 1.1rem; line-height: 1.6; }
+        .contact-item a { color: white; text-decoration: none; transition: color 0.3s ease; }
+        .contact-item a:hover { color: #00d4aa; }
 
         /* Footer */
-        footer {
-            background: #0a1a2e;
-            color: white;
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 2px solid #00d4aa;
-        }
-
-        .footer-content {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #00d4aa;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
+        footer { background: #0a1a2e; color: white; text-align: center; padding: 3rem 0; border-top: 2px solid #00d4aa; }
+        .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }
+        .footer-links a { color: #00d4aa; text-decoration: none; transition: color 0.3s ease; }
+        .footer-links a:hover { color: white; }
 
         /* Modals */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 2000;
-            backdrop-filter: blur(5px);
-        }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; backdrop-filter: blur(5px); }
+        .modal-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); background: white; padding: 3rem; border-radius: 25px; width: 90%; max-width: 600px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto; }
+        .close { position: absolute; top: 15px; right: 25px; font-size: 2rem; cursor: pointer; color: #999; transition: color 0.3s ease; }
+        .close:hover { color: #333; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #333; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 1rem; border: 2px solid #e1e1e1; border-radius: 15px; font-size: 1rem; transition: border-color 0.3s ease; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #00d4aa; box-shadow: 0 0 10px rgba(0,212,170,0.2); }
+        .search-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
 
-        .modal-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: white;
-            padding: 3rem;
-            border-radius: 25px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-
-        .close {
-            position: absolute;
-            top: 15px;
-            right: 25px;
-            font-size: 2rem;
-            cursor: pointer;
-            color: #999;
-            transition: color 0.3s ease;
-        }
-
-        .close:hover {
-            color: #333;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e1e1e1;
-            border-radius: 15px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            outline: none;
-            border-color: #00d4aa;
-            box-shadow: 0 0 10px rgba(0, 212, 170, 0.2);
-        }
-
-        .search-filters {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 1.5rem 0;
-        }
-
-        /* Responsive Design */
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .modules-row {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .stats-bar {
-                gap: 1.5rem;
-            }
-
-            .stat-item {
-                padding: 1rem;
-                min-width: 120px;
-            }
-
-            .expertise-grid, .services-grid, .pricing-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .modules-row { flex-direction: column; align-items: center; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .stats-bar { gap: 1.5rem; }
+            .stat-item { padding: 1rem; min-width: 120px; }
+            .expertise-grid, .services-grid, .pricing-cards { grid-template-columns: 1fr; }
+            .contact-info { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -790,22 +151,10 @@
                     <p>Transformez vos échecs en succès grâce aux leçons apprises des projets similaires au Cameroun. Notre équipe pluridisciplinaire d'experts vous accompagne à chaque étape du cycle de projet avec des compétences en analyse, économie, mathématiques statistiques et intelligence artificielle.</p>
                     
                     <div class="stats-bar">
-                        <div class="stat-item">
-                            <span class="stat-number">200+</span>
-                            <span class="stat-label">Projets Évalués</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">95%</span>
-                            <span class="stat-label">Taux de Réussite</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">50+</span>
-                            <span class="stat-label">Leçons Capitalisées</span>
-                        </div>
-                        <div class="stat-item">
-                            <span class="stat-number">15+</span>
-                            <span class="stat-label">Années d'Expérience</span>
-                        </div>
+                        <div class="stat-item"><span class="stat-number">200+</span><span class="stat-label">Projets Évalués</span></div>
+                        <div class="stat-item"><span class="stat-number">95%</span><span class="stat-label">Taux de Réussite</span></div>
+                        <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label">Leçons Capitalisées</span></div>
+                        <div class="stat-item"><span class="stat-number">15+</span><span class="stat-label">Années d'Expérience</span></div>
                     </div>
                     
                     <div class="cta-buttons">
@@ -827,33 +176,90 @@
                         <h3>Conception et Planification Stratégique</h3>
                         <p>Nous accompagnons vos projets dès leur phase initiale en élaborant des cadres logiques solides, des matrices d'évaluation pertinentes et des indicateurs de performance clairs et mesurables. Utilisation d'algorithmes d'IA pour optimiser la conception des interventions.</p>
                     </div>
-                    
                     <div class="expertise-card">
                         <div class="expertise-icon">📊</div>
                         <h3>Évaluation Rigoureuse Multi-Phase</h3>
                         <p>Nous réalisons des évaluations ex-ante (avant projet), en cours (in itinere) et ex-post (après projet) pour mesurer l'efficacité, l'efficience, la pertinence, la durabilité et l'impact de vos interventions. Méthodologies enrichies par l'apprentissage automatique.</p>
                     </div>
-                    
                     <div class="expertise-card">
                         <div class="expertise-icon">💡</div>
                         <h3>Analyse et Recommandations Stratégiques</h3>
                         <p>Nos rapports d'évaluation ne se limitent pas à des constats ; nous transformons les données en recommandations concrètes et stratégiques pour l'amélioration continue de la performance de vos projets. IA prédictive pour anticiper les défis futurs.</p>
                     </div>
-
                     <div class="expertise-card">
                         <div class="expertise-icon">💰</div>
                         <h3>Analyse Économique et Statistique Avancée</h3>
                         <p>Nous utilisons des méthodologies quantitatives avancées pour évaluer la viabilité financière des projets, estimer les impacts socio-économiques et modéliser les scénarios de développement. Machine learning pour l'analyse prédictive des retours sur investissement.</p>
                     </div>
-
                     <div class="expertise-card">
                         <div class="expertise-icon">📈</div>
                         <h3>Modélisation Mathématique et IA</h3>
                         <p>Nous développons des modèles mathématiques enrichis par l'intelligence artificielle pour simuler les résultats, prédire les tendances et optimiser l'allocation des ressources, assurant ainsi une prise de décision éclairée basée sur des algorithmes sophistiqués.</p>
                     </div>
-
                     <div class="expertise-card">
                         <div class="expertise-icon">🎖️</div>
                         <h3>Gestion Axée sur les Résultats (GAR)</h3>
                         <p>Nous mettons en place des systèmes de suivi et d'évaluation basés sur la GAR, permettant de mesurer les progrès par rapport aux objectifs et de justifier les investissements. Tableaux de bord intelligents avec alertes automatisées par IA.</p>
                     </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">💻</div>
+                        <h3>Développement de Plateformes Digitales IA</h3>
+                        <p>Nous développons des plateformes digitales intuitives enrichies d'intelligence artificielle pour la capitalisation et le partage des connaissances. Ces plateformes utilisent le traitement automatique du langage naturel pour analyser et catégoriser automatiquement les rapports.</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">🔒</div>
+                        <h3>Archivage Sécurisé et Accès Intelligent</h3>
+                        <p>Nous garantissons un archivage pérenne et sécurisé de toutes les informations, permettant aux acteurs du développement (gouvernement, bailleurs, ONG) de capitaliser sur les succès et les leçons apprises. Moteur de recherche IA pour retrouver instantanément les informations pertinentes.</p>
+                    </div>
+                </div>
+
+                <!-- Section Innovation IA -->
+                <div style="margin-top: 4rem;">
+                    <h3 style="font-size: 2.2rem; color: #1a2f59; margin-bottom: 2rem; text-align: center;">🚀 Innovation par l'Intelligence Artificielle</h3>
+                    <div style="background: linear-gradient(135deg, #1a2f59 0%, #2d5016 100%); padding: 3rem; border-radius: 20px; color: white;">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2.5rem;">
+                            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0,212,170,0.3);">
+                                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🤖</div>
+                                <h4 style="color: #00d4aa; margin-bottom: 1rem; font-size: 1.3rem;">IA Prédictive</h4>
+                                <p>Algorithmes d'apprentissage automatique pour prédire les risques de projet, anticiper les besoins de financement et optimiser les interventions avant même leur mise en œuvre.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0,212,170,0.3);">
+                                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🧠</div>
+                                <h4 style="color: #00d4aa; margin-bottom: 1rem; font-size: 1.3rem;">Traitement Automatique</h4>
+                                <p>Analyse automatique de documents, extraction d'informations clés des rapports, classification intelligente des leçons apprises et génération automatique de synthèses exécutives.</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.1); padding: 2rem; border-radius: 15px; border: 1px solid rgba(0,212,170,0.3);">
+                                <div style="font-size: 2.5rem; margin-bottom: 1rem;">🎯</div>
+                                <h4 style="color: #00d4aa; margin-bottom: 1rem; font-size: 1.3rem;">Recommandations Intelligentes</h4>
+                                <p>Système de recommandations basé sur l'IA qui analyse les projets similaires et propose automatiquement les meilleures pratiques et stratégies d'intervention adaptées au contexte.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notre Engagement -->
+                <div style="margin-top: 4rem; text-align: center;">
+                    <h3 style="font-size: 2.2rem; color: #1a2f59; margin-bottom: 2rem;">🤝 Notre Engagement</h3>
+                    <div style="background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%); padding: 3rem; border-radius: 20px; border: 1px solid rgba(0,212,170,0.1);">
+                        <p style="font-size: 1.2rem; color: #666; line-height: 1.8; max-width: 900px; margin: 0 auto;">
+                            <strong style="color: #1a2f59;">Nous sommes plus qu'une équipe d'experts. Nous sommes des partenaires de votre succès.</strong> Notre approche est de construire une relation de confiance et de transparence, en mettant notre expertise au service de la bonne gouvernance et du développement durable au Cameroun. Grâce à l'intégration de l'intelligence artificielle dans nos processus, nous offrons une approche révolutionnaire qui combine l'expertise humaine et la puissance de l'IA pour des résultats exceptionnels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="platform-architecture">
+            <div class="container">
+                <h2 class="architecture-title">Architecture de la Plateforme</h2>
+                <div class="architecture-diagram">
+                    <div class="module" onclick="navigateToSection('accueil')">
+                        <h3>1. Accueil</h3>
+                        <p>Présentation de l'expertise et services</p>
+                    </div>
+                    <div class="connector"></div>
+                    <div class="modules-row">
+                        <div class="module" onclick="openModal('searchModal')">
+                            <h3>2. Moteur de recherche</h3>
+                            <p>Accès aux rapports d'évaluation et analyses</p>
+                        </div>
