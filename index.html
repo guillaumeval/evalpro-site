@@ -3,13 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EvalPro Cameroun - Équipe d'Experts en Gestion de Projets</title>
+    <title>EvalPro Cameroun - Expert en Analyse et Évaluation de Projets de Développement</title>
     
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Équipe d'experts en gestion de projets de développement local au Cameroun. IA, statistiques, leçons apprises et accompagnement professionnel.">
-    <meta name="keywords" content="expert évaluation projets Cameroun, développement local, intelligence artificielle, statistiques projets, consultation Yaoundé">
+    <meta name="description" content="Expert en analyse et évaluation de projets de développement local au Cameroun. Statistiques, leçons apprises et accompagnement professionnel pour vos projets.">
+    <meta name="keywords" content="expert évaluation projets Cameroun, développement local, statistiques projets, analyse mathématique, consultation Yaoundé">
     <meta name="author" content="EvalPro Cameroun">
     <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="EvalPro Cameroun - Expert en Évaluation de Projets">
+    <meta property="og:description" content="Expertise en analyse statistique et évaluation de projets de développement local au Cameroun">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://guillaumeval.github.io/evalpro-site">
+    
+    <!-- Balises géographiques -->
+    <meta name="geo.region" content="CM-CE">
+    <meta name="geo.placename" content="Yaoundé">
+    <meta name="geo.position" content="3.8480;11.5021">
+    <meta name="ICBM" content="3.8480, 11.5021">
     
     <style>
         * {
@@ -68,11 +80,27 @@
             color: white;
             font-weight: 500;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .nav-links a:hover {
             color: #00d4aa;
             transform: translateY(-2px);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #00d4aa;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
         }
 
         .login-btn {
@@ -92,7 +120,7 @@
             box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
         }
 
-        /* Hero Section */
+        /* Hero Section with Data Visualization Background */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -100,6 +128,24 @@
             position: relative;
             background: linear-gradient(135deg, #1a2f59 0%, #2d5016 50%, #0f3460 100%);
             overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ffffff;stop-opacity:0.1'/%3E%3Cstop offset='100%25' style='stop-color:%23ffffff;stop-opacity:0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='url(%23grad)'%3E%3Ccircle cx='200' cy='200' r='3'/%3E%3Ccircle cx='400' cy='150' r='2'/%3E%3Ccircle cx='600' cy='300' r='4'/%3E%3Ccircle cx='800' cy='250' r='3'/%3E%3Ccircle cx='300' cy='400' r='2'/%3E%3Ccircle cx='700' cy='450' r='3'/%3E%3Cpath d='M200,200 L400,150 L600,300 L800,250' stroke='%2300d4aa' stroke-width='1' fill='none' opacity='0.3'/%3E%3Cpath d='M300,400 L600,300 L700,450' stroke='%230099cc' stroke-width='1' fill='none' opacity='0.3'/%3E%3C/g%3E%3C/svg%3E") center/cover;
+            opacity: 0.3;
+            animation: dataFloat 20s ease-in-out infinite;
+        }
+
+        @keyframes dataFloat {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            33% { transform: translateY(-20px) translateX(10px); }
+            66% { transform: translateY(10px) translateX(-5px); }
         }
 
         .hero-content {
@@ -119,6 +165,12 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes textGlow {
+            from { filter: drop-shadow(0 0 20px rgba(0, 212, 170, 0.3)); }
+            to { filter: drop-shadow(0 0 30px rgba(0, 212, 170, 0.6)); }
         }
 
         .hero-subtitle {
@@ -188,6 +240,23 @@
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn-primary {
@@ -208,122 +277,499 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
 
-        /* Platform Architecture Section */
-        .platform-architecture {
+        /* Expertise Section */
+        .expertise {
             padding: 5rem 0;
             background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%);
         }
 
+        .expertise h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            color: #1a2f59;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .expertise-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #00d4aa, #0099cc);
+        }
+
+        .expertise-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
+        }
+
+        .expertise-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #00d4aa, #0099cc);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .expertise-card h3 {
+            font-size: 1.5rem;
+            color: #1a2f59;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Platform Architecture */
+        .platform-architecture {
+            background: #1a2f59;
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-architecture::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3Cpattern id='grid' width='50' height='50' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 50 0 L 0 0 0 50' fill='none' stroke='%2300d4aa' stroke-width='0.5' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
         .architecture-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .architecture-diagram {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .module {
+            background: linear-gradient(135deg, #00d4aa 0%, #0099cc 100%);
+            padding: 2rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+            min-width: 280px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .module::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .module:hover::before {
+            transform: scale(1);
+        }
+
+        .module:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.4);
+        }
+
+        .module h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        .module p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .modules-row {
+            display: flex;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .connector {
+            width: 4px;
+            height: 50px;
+            background: linear-gradient(to bottom, #00d4aa, #0099cc);
+            border-radius: 2px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0, 212, 170, 0.5);
+        }
+
+        .connector::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            background: #00d4aa;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0, 212, 170, 0.8);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9ff 0%, #ffffff 100%);
+        }
+
+        .services h2 {
             text-align: center;
             font-size: 2.8rem;
             color: #1a2f59;
             margin-bottom: 4rem;
         }
 
-        .architecture-diagram {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
         }
 
-        .module {
+        .service-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 2.5rem;
+            border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 2px solid #00d4aa;
-            margin: 1.5rem 0;
-            cursor: pointer;
             transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 170, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(45deg, #ff6b6b, #00d4aa);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a2f59;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Subscription Section */
+        .subscription-section {
+            background: linear-gradient(135deg, #1a2f59 0%, #2d5016 100%);
+            padding: 5rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .subscription-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1000 1000'%3E%3Cdefs%3E%3CradialGradient id='radial'%3E%3Cstop offset='0%25' style='stop-color:%2300d4aa;stop-opacity:0.1'/%3E%3Cstop offset='100%25' style='stop-color:%2300d4aa;stop-opacity:0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='200' cy='200' r='100' fill='url(%23radial)'/%3E%3Ccircle cx='800' cy='400' r='150' fill='url(%23radial)'/%3E%3Ccircle cx='500' cy='700' r='120' fill='url(%23radial)'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .subscription-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .subscription-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 3rem;
+            border-radius: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #00d4aa, #0099cc);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 212, 170, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.05);
+            border: 2px solid #00d4aa;
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #00d4aa;
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1.5rem 0;
+            background: linear-gradient(45deg, #00d4aa, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00d4aa;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1a2f59 0%, #0f3460 100%);
+            color: white;
+            padding: 4rem 0;
             text-align: center;
         }
 
-        .module:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.2);
-            background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%);
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #00d4aa;
         }
 
-        .module h3 {
-            color: #1a2f59;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .module p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .modules-row {
+        .contact-info {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin: 1.5rem 0;
+            margin: 3rem 0;
         }
 
-        .connector {
-            width: 3px;
-            height: 40px;
-            background: linear-gradient(to bottom, #00d4aa, #0099cc);
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.2);
+        }
+
+        .contact-item h3 {
+            color: #00d4aa;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #00d4aa;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a1a2e;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            border-top: 2px solid #00d4aa;
+        }
+
+        .footer-content {
+            max-width: 600px;
             margin: 0 auto;
-            border-radius: 2px;
         }
 
-        /* Modal Styles */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #00d4aa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Modals */
         .modal {
             display: none;
             position: fixed;
-            z-index: 2000;
-            left: 0;
             top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            backdrop-filter: blur(5px);
         }
 
         .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background: white;
-            margin: 5% auto;
             padding: 3rem;
-            border-radius: 20px;
+            border-radius: 25px;
             width: 90%;
-            max-width: 600px;
-            position: relative;
+            max-width: 500px;
             box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            animation: modalSlideIn 0.3s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .close {
-            color: #aaa;
-            float: right;
+            position: absolute;
+            top: 15px;
+            right: 25px;
             font-size: 2rem;
-            font-weight: bold;
             cursor: pointer;
+            color: #999;
             transition: color 0.3s ease;
         }
 
         .close:hover {
-            color: #ff6b6b;
-        }
-
-        .modal h2 {
-            color: #1a2f59;
-            margin-bottom: 2rem;
-            text-align: center;
+            color: #333;
         }
 
         .form-group {
@@ -337,93 +783,19 @@
             font-weight: 600;
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 1rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 10px;
+            border: 2px solid #e1e1e1;
+            border-radius: 15px;
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
 
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             outline: none;
             border-color: #00d4aa;
-            box-shadow: 0 0 10px rgba(0, 212, 170, 0.1);
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .btn-modal {
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-modal.primary {
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-            color: white;
-        }
-
-        .btn-modal.secondary {
-            background: #e1e5e9;
-            color: #666;
-        }
-
-        .btn-modal:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Notification Styles */
-        .notification {
-            position: fixed;
-            top: 100px;
-            right: 20px;
-            background: linear-gradient(45deg, #00d4aa, #0099cc);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
-            z-index: 3000;
-            animation: slideInRight 0.3s ease;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(100px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .notification.success {
-            background: linear-gradient(45deg, #4caf50, #45a049);
-        }
-
-        .notification.error {
-            background: linear-gradient(45deg, #f44336, #d32f2f);
+            box-shadow: 0 0 10px rgba(0, 212, 170, 0.2);
         }
 
         /* Responsive Design */
@@ -434,6 +806,11 @@
             
             .nav-links {
                 display: none;
+            }
+            
+            .modules-row {
+                flex-direction: column;
+                align-items: center;
             }
             
             .cta-buttons {
@@ -450,15 +827,29 @@
                 min-width: 120px;
             }
 
-            .modules-row {
+            .expertise-grid, .services-grid, .pricing-cards {
                 grid-template-columns: 1fr;
             }
 
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
-                padding: 2rem;
+            .contact-info {
+                grid-template-columns: 1fr;
             }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
@@ -480,26 +871,26 @@
     <main>
         <section id="accueil" class="hero">
             <div class="container">
-                <div class="hero-content">
+                <div class="hero-content fade-in-up">
                     <div class="hero-subtitle">Équipe d'Experts en Gestion de Projets</div>
                     <h1>Plateforme de Capitalisation des Évaluations de Projets de Développement Local</h1>
-                    <p>Transformez vos échecs en succès grâce aux leçons apprises des projets similaires au Cameroun. Notre équipe pluridisciplinaire d'experts vous accompagne à chaque étape du cycle de projet avec des compétences en analyse, économie, mathématiques statistiques et intelligence artificielle.</p>
+                    <p>Transformez vos échecs en succès grâce aux leçons apprises des projets similaires au Cameroun. Notre équipe pluridisciplinaire d'experts vous accompagne à chaque étape du cycle de projet avec des compétences en analyse, économie, mathématiques statistiques et gestion de projet.</p>
                     
                     <div class="stats-bar">
                         <div class="stat-item">
-                            <span class="stat-number">200</span>
+                            <span class="stat-number">200+</span>
                             <span class="stat-label">Projets Évalués</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">95</span>
+                            <span class="stat-number">95%</span>
                             <span class="stat-label">Taux de Réussite</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">50</span>
+                            <span class="stat-number">50+</span>
                             <span class="stat-label">Leçons Capitalisées</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-number">15</span>
+                            <span class="stat-number">15+</span>
                             <span class="stat-label">Années d'Expérience</span>
                         </div>
                     </div>
@@ -507,6 +898,78 @@
                     <div class="cta-buttons">
                         <a href="#abonnements" class="btn btn-primary">Accéder aux leçons apprises</a>
                         <a href="#expertise" class="btn btn-secondary">Découvrir notre équipe</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="expertise" class="expertise">
+            <div class="container">
+                <h2>Notre Équipe d'Experts</h2>
+                <p class="expertise-subtitle">Une équipe pluridisciplinaire d'experts spécialisés dans tous les aspects du cycle de gestion de projets de développement local au Cameroun. Compétences complémentaires pour une approche holistique et rigoureuse.</p>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">👥</div>
+                        <h3>Analystes Évaluateurs de Projets</h3>
+                        <p>Équipe d'analystes spécialisés dans l'évaluation de projets de développement. Maîtrise des méthodologies d'évaluation ex-ante, mi-parcours et ex-post. Expertise dans l'analyse de la pertinence, efficacité, efficience, impact et durabilité des interventions.</p>
+                    </div>
+                    
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">💰</div>
+                        <h3>Économistes du Développement</h3>
+                        <p>Économistes spécialisés dans l'analyse coût-bénéfice, l'évaluation de l'impact économique et social des projets. Expertise en modélisation économique, analyse des marchés locaux et évaluation de la rentabilité socio-économique des investissements.</p>
+                    </div>
+                    
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">📊</div>
+                        <h3>Mathématiciens-Statisticiens</h3>
+                        <p>Experts en mathématiques appliquées et statistiques avancées. Modélisation statistique, analyse de données complexes, tests d'hypothèses et analyse prédictive. Maîtrise des logiciels SPSS, R, Python pour le traitement des données de projets.</p>
+                    </div>
+                    
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">🔄</div>
+                        <h3>Spécialistes du Cycle de Projet</h3>
+                        <p>Experts dans toutes les phases du cycle de projet : identification, formulation, financement, mise en œuvre, suivi et évaluation. Maîtrise des approches de gestion de projet (PCM, cadre logique, théorie du changement) adaptées au contexte camerounais.</p>
+                    </div>
+                    
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">📈</div>
+                        <h3>Analystes en Suivi-Évaluation</h3>
+                        <p>Spécialistes des systèmes de suivi-évaluation (S&E), conception d'indicateurs de performance, collecte et analyse de données de suivi. Expertise en évaluation d'impact, méthodes quasi-expérimentales et randomisation contrôlée.</p>
+                    </div>
+                    
+                    <div class="expertise-card fade-in-up">
+                        <div class="expertise-icon">🎯</div>
+                        <h3>Consultants en Gestion de Projet</h3>
+                        <p>Consultants senior avec une expérience terrain extensive dans la gestion de projets de développement au Cameroun. Accompagnement stratégique, formation des équipes et capitalisation des bonnes pratiques pour l'amélioration continue.</p>
+                    </div>
+                </div>
+
+                <!-- Équipe Leadership Section -->
+                <div style="margin-top: 4rem; text-align: center;">
+                    <h3 style="font-size: 2rem; color: #1a2f59; margin-bottom: 2rem;">Approche Collaborative</h3>
+                    <div style="background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%); padding: 3rem; border-radius: 20px; border: 1px solid rgba(0, 212, 170, 0.1);">
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; color: #00d4aa; margin-bottom: 1rem;">🎯</div>
+                                <h4 style="color: #1a2f59; margin-bottom: 1rem;">Vision Intégrée</h4>
+                                <p style="color: #666;">Approche multidisciplinaire pour une analyse complète de vos projets</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; color: #00d4aa; margin-bottom: 1rem;">⚡</div>
+                                <h4 style="color: #1a2f59; margin-bottom: 1rem;">Efficacité Optimale</h4>
+                                <p style="color: #666;">Synergie des compétences pour des résultats rapides et précis</p>
+                            </div>
+                            <div style="text-align: center;">
+                                <div style="font-size: 3rem; color: #00d4aa; margin-bottom: 1rem;">🌟</div>
+                                <h4 style="color: #1a2f59; margin-bottom: 1rem;">Excellence Garantie</h4>
+                                <p style="color: #666;">Standards internationaux adaptés au contexte local camerounais</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 1.1rem; color: #666; line-height: 1.7; max-width: 800px; margin: 0 auto;">
+                            Notre équipe pluridisciplinaire combine expertise technique, connaissance du terrain et innovation méthodologique pour vous accompagner à chaque étape de vos projets de développement. De la conception à l'évaluation finale, nous mettons notre savoir-faire collectif au service de votre réussite.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -553,7 +1016,7 @@
                     <div class="modules-row">
                         <div class="module" onclick="navigateToSection('expertise')">
                             <h3>À propos</h3>
-                            <p>Notre expertise et parcours professionnel</p>
+                            <p>Mon expertise et parcours professionnel</p>
                         </div>
                         <div class="module" onclick="navigateToSection('contact')">
                             <h3>Contact</h3>
@@ -563,223 +1026,715 @@
                 </div>
             </div>
         </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Nos Services</h2>
+                <div class="services-grid">
+                    <div class="service-card fade-in-up">
+                        <h3>Évaluation Complète de Projets</h3>
+                        <p>Évaluation multidisciplinaire de vos projets par notre équipe d'experts. Analyse économique, statistique et technique pour une évaluation holistique. Méthodologies rigoureuses adaptées au contexte camerounais et aux standards internationaux.</p>
+                    </div>
+                    
+                    <div class="service-card fade-in-up">
+                        <h3>Analyse Économique et Statistique</h3>
+                        <p>Traitement avancé de données par nos économistes et mathématiciens-statisticiens. Modélisation économétrique, analyse coût-bénéfice, évaluation d'impact et prévisions. Rapports techniques détaillés avec recommandations stratégiques.</p>
+                    </div>
+                    
+                    <div class="service-card fade-in-up">
+                        <h3>Capitalisation Collaborative des Leçons</h3>
+                        <p>Notre équipe structure et capitalise les leçons apprises de centaines de projets similaires. Base de connaissances enrichie par l'expertise collective de nos spécialistes pour éviter les erreurs récurrentes et répliquer les succès.</p>
+                    </div>
+                    
+                    <div class="service-card fade-in-up">
+                        <h3>Formation et Renforcement d'Équipes</h3>
+                        <p>Programmes de formation conçus et dispensés par nos experts. Renforcement des capacités en gestion de cycle de projet, suivi-évaluation, analyse statistique et méthodologies d'évaluation. Approche pédagogique pratique et interactive.</p>
+                    </div>
+                    
+                    <div class="service-card fade-in-up">
+                        <h3>Consultation Stratégique Intégrée</h3>
+                        <p>Accompagnement stratégique par notre équipe pluridisciplinaire. Conseil en conception de projet, développement de systèmes S&E, optimisation des processus et amélioration de la performance. Vision 360° de votre projet.</p>
+                    </div>
+                    
+                    <div class="service-card fade-in-up">
+                        <h3>Recherche et Études Terrain</h3>
+                        <p>Études approfondies menées par nos équipes de terrain. Enquêtes quantitatives et qualitatives, collecte de données primaires, analyses sectorielles et études d'impact. Méthodologies robustes et approche participative avec les communautés.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="abonnements" class="subscription-section">
+            <div class="container">
+                <h2>Choisissez votre Abonnement</h2>
+                <p class="subscription-subtitle">Accédez aux leçons apprises et bénéficiez de mon expertise pour optimiser vos projets de développement</p>
+                
+                <div class="pricing-cards">
+                    <div class="pricing-card fade-in-up">
+                        <h3>Essentiel</h3>
+                        <div class="price">25,000 FCFA<span style="font-size: 1rem;">/mois</span></div>
+                        <ul class="features">
+                            <li>Accès aux leçons apprises fondamentales</li>
+                            <li>Recherche dans la base de données</li>
+                            <li>10 téléchargements de rapports/mois</li>
+                            <li>Fiches méthodologiques de base</li>
+                            <li>Support email (48h)</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="subscribe('essentiel')">S'abonner</button>
+                    </div>
+                    
+                    <div class="pricing-card featured fade-in-up">
+                        <h3>Professionnel</h3>
+                        <div class="price">45,000 FCFA<span style="font-size: 1rem;">/mois</span></div>
+                        <ul class="features">
+                            <li>Accès complet aux leçons apprises</li>
+                            <li>Analyses statistiques détaillées</li>
+                            <li>Téléchargements illimités</li>
+                            <li>Modèles d'évaluation personnalisés</li>
+                            <li>Webinaires mensuels d'expertise</li>
+                            <li>Consultation téléphonique (2h/mois)</li>
+                            <li>Support prioritaire (24h)</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="subscribe('professionnel')">S'abonner</button>
+                    </div>
+                    
+                    <div class="pricing-card fade-in-up">
+                        <h3>Entreprise</h3>
+                        <div class="price">85,000 FCFA<span style="font-size: 1rem;">/mois</span></div>
+                        <ul class="features">
+                            <li>Accès multi-utilisateurs (10 comptes)</li>
+                            <li>Rapports d'évaluation personnalisés</li>
+                            <li>Analyse statistique sur-mesure</li>
+                            <li>Formation équipe (4h/mois)</li>
+                            <li>Accompagnement méthodologique</li>
+                            <li>Consultation directe illimitée</li>
+                            <li>Support dédié 24/7</li>
+                        </ul>
+                        <button class="btn btn-primary" onclick="openModal('contactModal')">Nous contacter</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contactez Notre Équipe</h2>
+                <p>Équipe pluridisciplinaire d'experts en gestion de projets de développement local au Cameroun</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item fade-in-up">
+                        <h3>📱 Téléphone</h3>
+                        <p>
+                            <a href="tel:+237698443166">+237 698 443 166</a><br>
+                            <a href="tel:+237621214293">+237 621 214 293</a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-item fade-in-up">
+                        <h3>📧 Email</h3>
+                        <p>
+                            <a href="mailto:equipe@evalpro-cameroun.com">equipe@evalpro-cameroun.com</a><br>
+                            <a href="mailto:experts@evalpro-cameroun.com">experts@evalpro-cameroun.com</a>
+                        </p>
+                    </div>
+                    
+                    <div class="contact-item fade-in-up">
+                        <h3>📍 Localisation</h3>
+                        <p>
+                            Yaoundé, Cameroun<br>
+                            Région du Centre<br>
+                            Disponible pour missions terrain
+                        </p>
+                    </div>
+                    
+                    <div class="contact-item fade-in-up">
+                        <h3>⏰ Disponibilité</h3>
+                        <p>
+                            Lun - Ven: 8h00 - 18h00<br>
+                            Sam: 9h00 - 14h00<br>
+                            Urgences: 24h/24
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Modales -->
-    <!-- Modal de Connexion -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#expertise">Expertise</a>
+                    <a href="#services">Services</a>
+                    <a href="#abonnements">Abonnements</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <p>&copy; 2025 EvalPro Cameroun - Équipe d'Experts en Gestion de Projets de Développement Local. Tous droits réservés.</p>
+                <p style="margin-top: 1rem; opacity: 0.8;">Analystes • Économistes • Mathématiciens-Statisticiens • Spécialistes Cycle de Projet</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('loginModal')">&times;</span>
-            <h2>Connexion à EvalPro</h2>
-            <form id="loginForm">
+            <h2>Connexion à votre Espace</h2>
+            <form>
                 <div class="form-group">
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" name="email" required>
+                    <label>Email:</label>
+                    <input type="email" required placeholder="votre@email.com">
                 </div>
                 <div class="form-group">
-                    <label for="password">Mot de passe :</label>
-                    <input type="password" id="password" name="password" required>
+                    <label>Mot de passe:</label>
+                    <input type="password" required placeholder="Votre mot de passe">
                 </div>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn-modal primary">Se connecter</button>
-                    <button type="button" class="btn-modal secondary" onclick="closeModal('loginModal')">Annuler</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+                <p style="margin-top: 1rem; text-align: center;">
+                    <a href="#" onclick="openModal('registerModal'); closeModal('loginModal')" style="color: #00d4aa;">Créer un compte</a>
+                </p>
             </form>
         </div>
     </div>
 
-    <!-- Modal de Recherche -->
-    <div id="searchModal" class="modal">
+    <div id="registerModal" class="modal">
         <div class="modal-content">
-            <span class="close" onclick="closeModal('searchModal')">&times;</span>
-            <h2>🔍 Moteur de Recherche Intelligent</h2>
-            <form id="searchForm">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Créer votre Compte</h2>
+            <form>
                 <div class="form-group">
-                    <label for="searchQuery">Rechercher dans la base de données :</label>
-                    <input type="text" id="searchQuery" name="searchQuery" placeholder="Ex: évaluation projet éducation, leçons infrastructure..." required>
+                    <label>Nom complet:</label>
+                    <input type="text" required placeholder="Votre nom complet">
                 </div>
                 <div class="form-group">
-                    <label for="searchCategory">Catégorie :</label>
-                    <select id="searchCategory" name="searchCategory">
-                        <option value="all">Toutes les catégories</option>
+                    <label>Email:</label>
+                    <input type="email" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Organisation/Entreprise:</label>
+                    <input type="text" placeholder="Nom de votre organisation">
+                </div>
+                <div class="form-group">
+                    <label>Type de projets:</label>
+                    <select required>
+                        <option value="">Choisir...</option>
+                        <option value="developpement_local">Développement local</option>
+                        <option value="agriculture">Agriculture</option>
                         <option value="education">Éducation</option>
                         <option value="sante">Santé</option>
                         <option value="infrastructure">Infrastructure</option>
-                        <option value="agriculture">Agriculture</option>
-                        <option value="environnement">Environnement</option>
-                    </select>
-                </div>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn-modal primary">Rechercher</button>
-                    <button type="button" class="btn-modal secondary" onclick="closeModal('searchModal')">Fermer</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal des Leçons Apprises -->
-    <div id="lessonsModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('lessonsModal')">&times;</span>
-            <h2>📚 Base de Leçons Apprises</h2>
-            <p style="margin-bottom: 2rem; color: #666; text-align: center;">Accédez à notre bibliothèque de leçons capitalisées sur des centaines de projets similaires</p>
-            <div style="display: grid; gap: 1rem;">
-                <div style="padding: 1rem; background: #f8f9ff; border-radius: 10px; border-left: 4px solid #00d4aa;">
-                    <h4 style="color: #1a2f59; margin-bottom: 0.5rem;">💡 Leçons Stratégiques</h4>
-                    <p style="color: #666; font-size: 0.9rem;">Capitalisation des meilleures pratiques et erreurs à éviter</p>
-                </div>
-                <div style="padding: 1rem; background: #f8f9ff; border-radius: 10px; border-left: 4px solid #0099cc;">
-                    <h4 style="color: #1a2f59; margin-bottom: 0.5rem;">📊 Analyses Statistiques</h4>
-                    <p style="color: #666; font-size: 0.9rem;">Données quantitatives et modélisations prédictives</p>
-                </div>
-                <div style="padding: 1rem; background: #f8f9ff; border-radius: 10px; border-left: 4px solid #ff6b6b;">
-                    <h4 style="color: #1a2f59; margin-bottom: 0.5rem;">🎯 Recommandations IA</h4>
-                    <p style="color: #666; font-size: 0.9rem;">Suggestions automatiques basées sur l'intelligence artificielle</p>
-                </div>
-            </div>
-            <div class="modal-buttons">
-                <button class="btn-modal primary" onclick="subscribe('professionnel')">Accéder maintenant</button>
-                <button class="btn-modal secondary" onclick="closeModal('lessonsModal')">Fermer</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal de Soumission -->
-    <div id="submitModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('submitModal')">&times;</span>
-            <h2>📤 Soumettre un Rapport</h2>
-            <form id="submitForm">
-                <div class="form-group">
-                    <label for="projectTitle">Titre du projet :</label>
-                    <input type="text" id="projectTitle" name="projectTitle" required>
-                </div>
-                <div class="form-group">
-                    <label for="projectType">Type de projet :</label>
-                    <select id="projectType" name="projectType" required>
-                        <option value="">Sélectionner...</option>
-                        <option value="education">Éducation</option>
-                        <option value="sante">Santé</option>
-                        <option value="infrastructure">Infrastructure</option>
-                        <option value="agriculture">Agriculture</option>
-                        <option value="environnement">Environnement</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="organization">Organisation :</label>
-                    <input type="text" id="organization" name="organization" required>
-                </div>
-                <div class="form-group">
-                    <label for="reportDescription">Description du rapport :</label>
-                    <textarea id="reportDescription" name="reportDescription" placeholder="Décrivez brièvement le contenu de votre rapport d'évaluation..." required></textarea>
-                </div>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn-modal primary">Soumettre</button>
-                    <button type="button" class="btn-modal secondary" onclick="closeModal('submitModal')">Annuler</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal d'Administration -->
-    <div id="adminModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('adminModal')">&times;</span>
-            <h2>🔐 Accès Administration</h2>
-            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Accès restreint aux administrateurs de la plateforme</p>
-            <form id="adminForm">
-                <div class="form-group">
-                    <label for="adminEmail">Email administrateur :</label>
-                    <input type="email" id="adminEmail" name="adminEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="adminPassword">Mot de passe :</label>
-                    <input type="password" id="adminPassword" name="adminPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="accessCode">Code d'accès :</label>
-                    <input type="text" id="accessCode" name="accessCode" placeholder="Code sécurisé requis" required>
-                </div>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn-modal primary">Accéder</button>
-                    <button type="button" class="btn-modal secondary" onclick="closeModal('adminModal')">Fermer</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal de Contact -->
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal('contactModal')">&times;</span>
-            <h2>📞 Nous Contacter</h2>
-            <form id="contactForm">
-                <div class="form-group">
-                    <label for="contactName">Nom complet :</label>
-                    <input type="text" id="contactName" name="contactName" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactEmail">Email :</label>
-                    <input type="email" id="contactEmail" name="contactEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="contactPhone">Téléphone :</label>
-                    <input type="tel" id="contactPhone" name="contactPhone">
-                </div>
-                <div class="form-group">
-                    <label for="contactSubject">Sujet :</label>
-                    <select id="contactSubject" name="contactSubject" required>
-                        <option value="">Sélectionner...</option>
-                        <option value="consultation">Demande de consultation</option>
-                        <option value="formation">Formation équipe</option>
-                        <option value="evaluation">Évaluation de projet</option>
-                        <option value="abonnement">Questions abonnement</option>
                         <option value="autre">Autre</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="contactMessage">Message :</label>
-                    <textarea id="contactMessage" name="contactMessage" placeholder="Décrivez votre demande..." required></textarea>
+                    <label>Mot de passe:</label>
+                    <input type="password" required placeholder="Mot de passe sécurisé">
                 </div>
-                <div class="modal-buttons">
-                    <button type="submit" class="btn-modal primary">Envoyer</button>
-                    <button type="button" class="btn-modal secondary" onclick="closeModal('contactModal')">Annuler</button>
+                <button type="submit" class="btn btn-primary">Créer le compte</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="subscriptionModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('subscriptionModal')">&times;</span>
+            <h2 id="subscriptionTitle">Abonnement</h2>
+            <form>
+                <div class="form-group">
+                    <label>Nom complet:</label>
+                    <input type="text" required placeholder="Votre nom complet">
                 </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Organisation:</label>
+                    <input type="text" placeholder="Nom de votre organisation">
+                </div>
+                <div class="form-group">
+                    <label>Téléphone:</label>
+                    <input type="tel" required placeholder="+237 6XX XXX XXX">
+                </div>
+                <div class="form-group">
+                    <label>Type de projets concernés:</label>
+                    <select required>
+                        <option value="">Choisir...</option>
+                        <option value="developpement_communautaire">Développement communautaire</option>
+                        <option value="agriculture_rurale">Agriculture et développement rural</option>
+                        <option value="education_formation">Éducation et formation</option>
+                        <option value="sante_nutrition">Santé et nutrition</option>
+                        <option value="infrastructure_locale">Infrastructure locale</option>
+                        <option value="environnement">Environnement et ressources naturelles</option>
+                        <option value="microfinance">Microfinance et économie locale</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mode de paiement:</label>
+                    <select required>
+                        <option value="">Choisir...</option>
+                        <option value="mtn">MTN Mobile Money</option>
+                        <option value="orange">Orange Money</option>
+                        <option value="bank">Virement bancaire</option>
+                        <option value="especes">Espèces (sur rendez-vous)</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Confirmer l'abonnement</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="searchModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('searchModal')">&times;</span>
+            <h2>🔍 Moteur de Recherche</h2>
+            <p>Recherchez dans notre base de données de rapports d'évaluation et d'analyses statistiques.</p>
+            <div class="form-group">
+                <label>Mots-clés:</label>
+                <input type="text" placeholder="Ex: développement rural, agriculture, éducation...">
+            </div>
+            <div class="form-group">
+                <label>Type de projet:</label>
+                <select>
+                    <option value="">Tous les types</option>
+                    <option value="developpement_local">Développement local</option>
+                    <option value="agriculture">Agriculture</option>
+                    <option value="education">Éducation</option>
+                    <option value="sante">Santé</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="showSearchResults()">Rechercher</button>
+            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                <strong>Note:</strong> Fonctionnalité complète disponible après abonnement
+            </p>
+        </div>
+    </div>
+
+    <div id="lessonsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('lessonsModal')">&times;</span>
+            <h2>📚 Leçons Apprises</h2>
+            <p>Accédez à notre bibliothèque de leçons capitalisées issues de projets de développement similaires.</p>
+            <div style="background: #f8f9ff; padding: 1.5rem; border-radius: 10px; margin: 1rem 0;">
+                <h4 style="color: #1a2f59; margin-bottom: 1rem;">Exemples de leçons disponibles:</h4>
+                <ul style="color: #666; line-height: 1.6;">
+                    <li>• Facteurs de succès des projets agricoles en zone rurale</li>
+                    <li>• Gestion communautaire des infrastructures hydrauliques</li>
+                    <li>• Strategies d'autonomisation des groupements féminins</li>
+                    <li>• Approches participatives en développement local</li>
+                </ul>
+            </div>
+            <button class="btn btn-primary" onclick="navigateToSection('abonnements'); closeModal('lessonsModal')">Voir les abonnements</button>
+            <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                <strong>Accès complet</strong> disponible avec tous nos plans d'abonnement
+            </p>
+        </div>
+    </div>
+
+    <div id="submitModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('submitModal')">&times;</span>
+            <h2>📤 Soumission de Rapports</h2>
+            <p>Contribuez à notre base de connaissances en partageant vos expériences de projet.</p>
+            <form>
+                <div class="form-group">
+                    <label>Titre du projet:</label>
+                    <input type="text" required placeholder="Nom de votre projet">
+                </div>
+                <div class="form-group">
+                    <label>Type de projet:</label>
+                    <select required>
+                        <option value="">Choisir...</option>
+                        <option value="developpement_local">Développement local</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="education">Éducation</option>
+                        <option value="sante">Santé</option>
+                        <option value="infrastructure">Infrastructure</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Résumé des leçons apprises:</label>
+                    <textarea rows="4" placeholder="Décrivez brièvement les principales leçons tirées de votre projet..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Votre contact:</label>
+                    <input type="email" required placeholder="votre@email.com">
+                </div>
+                <button type="submit" class="btn btn-primary">Soumettre</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('adminModal')">&times;</span>
+            <h2>🔐 Espace Administration</h2>
+            <p>Accès réservé à l'administrateur de la plateforme.</p>
+            <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 1rem; border-radius: 8px; margin: 1rem 0;">
+                <p style="color: #856404; margin: 0;">
+                    <strong>Accès restreint:</strong> Connectez-vous avec vos identifiants administrateur.
+                </p>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label>Identifiant administrateur:</label>
+                    <input type="text" required placeholder="admin_username">
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe administrateur:</label>
+                    <input type="password" required placeholder="Mot de passe sécurisé">
+                </div>
+                <button type="submit" class="btn btn-primary">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('contactModal')">&times;</span>
+            <h2>📞 Demande de Contact</h2>
+            <form>
+                <div class="form-group">
+                    <label>Nom complet:</label>
+                    <input type="text" required placeholder="Votre nom complet">
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" required placeholder="votre@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Téléphone:</label>
+                    <input type="tel" placeholder="+237 6XX XXX XXX">
+                </div>
+                <div class="form-group">
+                    <label>Objet de votre demande:</label>
+                    <select required>
+                        <option value="">Choisir...</option>
+                        <option value="evaluation_projet">Évaluation de projet</option>
+                        <option value="formation_equipe">Formation d'équipe</option>
+                        <option value="consultation_strategique">Consultation stratégique</option>
+                        <option value="abonnement_entreprise">Abonnement entreprise</option>
+                        <option value="autre">Autre</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea rows="4" required placeholder="Décrivez votre projet et vos besoins..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Envoyer la demande</button>
             </form>
         </div>
     </div>
 
     <script>
-        // Variables globales
-        let currentUser = null;
-        let subscriptionData = {};
-
-        // Fonctions de gestion des modales
+        // Modal functions
         function openModal(modalId) {
-            console.log(`Ouverture de la modale: ${modalId}`);
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                // Animation d'entrée
-                setTimeout(() => {
-                    modal.querySelector('.modal-content').style.transform = 'scale(1)';
-                }, 10);
-            } else {
-                console.error(`Modale ${modalId} non trouvée`);
-                showNotification(`Erreur: Section ${modalId} non disponible`, 'error');
-            }
+            document.getElementById(modalId).style.display = 'block';
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal(modalId) {
-            console.log(`Fermeture de la modale: ${modalId}`);
-            const modal = document.getElementById(modalId);
-            if (modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function subscribe(plan) {
+            const titles = {
+                'essentiel': 'Abonnement Essentiel - 25,000 FCFA/mois',
+                'professionnel': 'Abonnement Professionnel - 45,000 FCFA/mois'
+            };
+            document.getElementById('subscriptionTitle').textContent = titles[plan] || 'Abonnement';
+            openModal('subscriptionModal');
+        }
+
+        function navigateToSection(sectionId) {
+            closeAllModals();
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         }
 
-        // Fermer modale en cliquant à l'extérieur
+        function closeAllModals() {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+            document.body.style.overflow = 'auto';
+        }
+
+        function showSearchResults() {
+            alert('Résultats de recherche:\n\n• Projet agricole Région du Centre (2023)\n• Évaluation développement rural Littoral (2022)\n• Impact formation communautaires Nord (2023)\n\nAccès complet avec abonnement professionnel.');
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close modals when clicking outside
         window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+
+        // Form submissions with success messages
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form type for customized messages
+                const modal = this.closest('.modal');
+                let successMessage = '';
+                
+                if (modal) {
+                    const modalId = modal.id;
+                    switch(modalId) {
+                        case 'loginModal':
+                            successMessage = '✅ Connexion réussie ! Redirection vers votre espace personnel...';
+                            break;
+                        case 'registerModal':
+                            successMessage = '✅ Compte créé avec succès ! Un email de confirmation vous a été envoyé.';
+                            break;
+                        case 'subscriptionModal':
+                            successMessage = '✅ Demande d\'abonnement enregistrée ! Je vous contacte sous 24h pour finaliser votre souscription.';
+                            break;
+                        case 'contactModal':
+                            successMessage = '✅ Message envoyé avec succès ! Je vous réponds dans les plus brefs délais.';
+                            break;
+                        case 'submitModal':
+                            successMessage = '✅ Rapport soumis avec succès ! Merci pour votre contribution à notre base de connaissances.';
+                            break;
+                        case 'adminModal':
+                            successMessage = '🔐 Vérification des identifiants administrateur...';
+                            break;
+                        default:
+                            successMessage = '✅ Formulaire soumis avec succès !';
+                    }
+                } else {
+                    successMessage = '✅ Formulaire soumis avec succès !';
+                }
+                
+                alert(successMessage);
+                
+                // Close the modal
+                if (modal) {
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                
+                // Reset form
+                this.reset();
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.service-card, .pricing-card, .expertise-card, .contact-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s ease';
+            observer.observe(el);
+        });
+
+        // Stats counter animation
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        stat.textContent = target + (stat.textContent.includes('%') ? '%' : '+');
+                        clearInterval(timer);
+                    } else {
+                        stat.textContent = Math.floor(current) + (stat.textContent.includes('%') ? '%' : '+');
+                    }
+                }, 40);
+            });
+        }
+
+        // Trigger stats animation when hero section is visible
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(animateStats, 1000);
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const heroSection = document.querySelector('.hero');
+        if (heroSection) {
+            heroObserver.observe(heroSection);
+        }
+
+        // Mobile menu toggle (for future enhancement)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Add scroll to top button (appears after scrolling)
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                if (!scrollButton) {
+                    const button = document.createElement('button');
+                    button.id = 'scrollToTop';
+                    button.innerHTML = '↑';
+                    button.style.cssText = `
+                        position: fixed;
+                        bottom: 30px;
+                        right: 30px;
+                        background: linear-gradient(45deg, #00d4aa, #0099cc);
+                        color: white;
+                        border: none;
+                        border-radius: 50%;
+                        width: 50px;
+                        height: 50px;
+                        font-size: 20px;
+                        cursor: pointer;
+                        z-index: 1000;
+                        box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
+                        transition: all 0.3s ease;
+                    `;
+                    button.onclick = scrollToTop;
+                    button.onmouseover = function() {
+                        this.style.transform = 'translateY(-3px)';
+                        this.style.boxShadow = '0 8px 25px rgba(0, 212, 170, 0.4)';
+                    };
+                    button.onmouseout = function() {
+                        this.style.transform = 'translateY(0)';
+                        this.style.boxShadow = '0 4px 15px rgba(0, 212, 170, 0.3)';
+                    };
+                    document.body.appendChild(button);
+                }
+            } else {
+                const scrollButton = document.getElementById('scrollToTop');
+                if (scrollButton) {
+                    scrollButton.remove();
+                }
+            }
+        });
+
+        // Keyboard navigation support
+        document.addEventListener('keydown', function(e) {
+            // Close modal with Escape key
+            if (e.key === 'Escape') {
+                closeAllModals();
+            }
+        });
+
+        // Performance optimization: Lazy load images (if any images are added later)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Contact form validation enhancement
+        function validatePhoneNumber(phone) {
+            const camerounRegex = /^(\+237|237)?[6-9]\d{8}$/;
+            return camerounRegex.test(phone.replace(/\s/g, ''));
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        // Enhanced form validation
+        document.querySelectorAll('input[type="tel"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validatePhoneNumber(this.value)) {
+                    this.style.borderColor = '#ff6b6b';
+                    this.setCustomValidity('Veuillez entrer un numéro camerounais valide (+237 6XX XXX XXX)');
+                } else {
+                    this.style.borderColor = '#00d4aa';
+                    this.setCustomValidity('');
+                }
+            });
+        });
+
+        document.querySelectorAll('input[type="email"]').forEach(input => {
+            input.addEventListener('blur', function() {
+                if (this.value && !validateEmail(this.value)) {
+                    this.style.borderColor = '#ff6b6b';
+                    this.setCustomValidity('Veuillez entrer une adresse email valide');
+                } else {
+                    this.style.borderColor = '#00d4aa';
+                    this.setCustomValidity('');
+                }
+            });
+        });
+
+        // Console welcome message for developers
+        console.log(`
+        🌟 EvalPro Cameroun - Plateforme d'Évaluation de Projets
+        📊 Expert en analyse statistique et développement local
+        📱 Contact: +237 698 443 166 / +237 621 214 293
+        🌐 Site développé avec passion pour le développement du Cameroun
+        `);
+
+        // Initialize page
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '1';
+            console.log('✅ Plateforme EvalPro Cameroun chargée avec succès !');
+        });
+    </script>
+</body>
+</html>
